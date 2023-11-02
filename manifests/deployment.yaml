@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: FlowiseAI
+  labels:
+    app: FlowiseAI
+  namespace: namespace-workflow-1698929205068
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: FlowiseAI
+  template:
+    metadata:
+      labels:
+        app: FlowiseAI
+    spec:
+      containers:
+        - name: FlowiseAI
+          image: acrworkflow1698929205068.azurecr.io/image-workflow-1698929205068:latest
+          ports:
+            - containerPort: 5000
